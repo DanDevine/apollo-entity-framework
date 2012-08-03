@@ -1,3 +1,5 @@
 syntax: glob
 bin/
 .settings/org.eclipse.jdt.core.prefs
+build.xml
+build/
