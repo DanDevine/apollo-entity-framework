@@ -3,7 +3,6 @@ package com.apollo.managers;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.apollo.ApolloException;
 import com.apollo.Component;
 import com.apollo.Entity;
 import com.apollo.utils.Bag;
@@ -71,18 +70,6 @@ public class EntityManager extends Manager {
 
 	@Override
 	public void update(int delta) {
-	}
-
-	public <T extends Component> T getSingleComponent(Class<T> type) throws RuntimeException {
-		ImmutableBag<Entity> entities = getEntitiesByComponentType(type);
-		if (entities == null || entities.isEmpty()) {
-			return null;
-		}
-		if (entities.size() > 1) {
-			throw new ApolloException("More than one entity found");
-		}
-		Entity entity = entities.get(0);
-		return entity.getComponent(type);
 	}
 
 }
