@@ -9,13 +9,6 @@ import com.apollo.managers.Manager;
 public abstract class ManagerInjector<T> {
 	private final Class<? extends Annotation> clazz;
 
-//	public static ManagerInjector<Component> injectorWorld = new ManagerInjector<Component>(InjectFromWorld.class) {
-//		@Override
-//		Component getInjectionObject(Entity entity, Class<Component> type) {
-//			return entity.getWorld().getEntityManager().getSingleComponent(type);
-//		}
-//	};
-	
 	public static ManagerInjector<Manager> injectorManager = new ManagerInjector<Manager>(InjectManager.class) {
 		@Override
 		Manager getInjectionObject(Manager manager, Class<Manager> type) {

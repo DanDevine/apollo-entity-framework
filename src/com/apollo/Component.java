@@ -46,8 +46,7 @@ public abstract class Component {
 		do {
 			Field[] fields = clazz.getDeclaredFields();
 			for (int i = 0; i < fields.length; i++) {
-				ComponentInjector.injectorOwner.inject(fields[i], this);
-				ComponentInjector.injectorWorld.inject(fields[i], this);
+				ComponentInjector.injectorComponent.inject(fields[i], this);
 				ComponentInjector.injectorManager.inject(fields[i], this);
 			}
 			clazz = clazz.getSuperclass();

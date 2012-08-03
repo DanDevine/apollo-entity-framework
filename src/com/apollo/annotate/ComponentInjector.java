@@ -11,17 +11,10 @@ import com.apollo.managers.Manager;
 public abstract class ComponentInjector<T> {
 	private final Class<? extends Annotation> clazz;
 
-	public static ComponentInjector<Component> injectorOwner = new ComponentInjector<Component>(InjectFromOwner.class) {
+	public static ComponentInjector<Component> injectorComponent = new ComponentInjector<Component>(InjectComponent.class) {
 		@Override
 		Component getInjectionObject(Entity entity, Class<Component> type) {
 			return entity.getComponent(type);
-		}
-	};
-	
-	public static ComponentInjector<Component> injectorWorld = new ComponentInjector<Component>(InjectFromWorld.class) {
-		@Override
-		Component getInjectionObject(Entity entity, Class<Component> type) {
-			return entity.getWorld().getEntityManager().getSingleComponent(type);
 		}
 	};
 	
@@ -58,12 +51,8 @@ public abstract class ComponentInjector<T> {
 	
 	abstract T getInjectionObject(Entity entity, Class<T> type);
 
-	public ComponentInjector<Component> getInjectorOwner() {
-		return injectorOwner;
-	}
-
-	public ComponentInjector<Component> getInjectorWorld() {
-		return injectorWorld;
+	public ComponentInjector<Component> getInjectorComponent() {
+		return injectorComponent;
 	}
 
 }
