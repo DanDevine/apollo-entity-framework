@@ -48,6 +48,7 @@ public abstract class Component {
 			for (int i = 0; i < fields.length; i++) {
 				ComponentInjector.injectorComponent.inject(fields[i], this);
 				ComponentInjector.injectorManager.inject(fields[i], this);
+				ComponentInjector.injectorTaggedEntity.inject(fields[i], this);
 			}
 			clazz = clazz.getSuperclass();
 		} while (clazz != Component.class);
